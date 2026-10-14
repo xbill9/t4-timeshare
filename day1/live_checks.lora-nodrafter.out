@@ -1,0 +1,14 @@
+model: xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4
+
+[stream usage] status 200 chunks 10 chunks with usage 1
+  last usage: {'prompt_tokens': 12, 'total_tokens': 20, 'completion_tokens': 8}
+  without include_usage, chunks with usage: 0
+
+[cache salt] (hit tokens, queried tokens) per request
+  salt=A first  : (0, 1217)
+  salt=A repeat : (1216, 1217)
+  salt=B        : (0, 1217)
+  no salt       : (0, 1217)
+  no salt repeat: (1216, 1217)
+
+[priority] priority=5 status 200 accepted

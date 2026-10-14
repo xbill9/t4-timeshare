@@ -1,0 +1,8 @@
+base  usage={'prompt_tokens': 21, 'total_tokens': 61, 'completion_tokens': 40, 'prompt_tokens_details': None, 'completion_tokens_details': None} text='1. **Secondary/Backup GPU:** For system redundancy in case the primary GPU fails'
+zero  usage={'prompt_tokens': 21, 'total_tokens': 61, 'completion_tokens': 40, 'prompt_tokens_details': None, 'completion_tokens_details': None} text='1. **Secondary/Backup GPU:** For system redundancy in case the primary GPU fails'
+rand  usage={'prompt_tokens': 21, 'total_tokens': 61, 'completion_tokens': 40, 'prompt_tokens_details': None, 'completion_tokens_details': None} text='Here are three uses for a spare GPU, focusing on different areas:\n\n1. **Gaming &'
+
+zero == base: True (first 40 of 40 tokens agree)
+rand != base: True (first 0 of 40 tokens agree)
+
+concurrent mixed batch: 6 of 6 requests match their solo output 
