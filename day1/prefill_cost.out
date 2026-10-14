@@ -1,0 +1,18 @@
+model: xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4 repeats: 5
+prompt ~  256: median    106.9 ms  min    103.4  max    108.7
+prompt ~  512: median    262.0 ms  min    258.9  max    267.9
+prompt ~ 1024: median    730.8 ms  min    717.0  max    737.4
+prompt ~ 2048: median   2180.8 ms  min   2149.6  max   2223.6
+prompt ~ 4096: median   7122.4 ms  min   7050.4  max   7363.7
+prompt ~ 8192: median  25364.0 ms  min  25261.6  max  25697.8
+cache hit tokens across all prefill requests: 0
+prefill fit over 30 requests: -12.8 ms + 374.32 us x n + 336.9989 ns x n^2; worst error 2.1%
+decode: median 9.34 ms per output token over 5 pairs (256 tokens minus 1 token, same length prompt)
+prefill time of one request, in output tokens of decode time:
+     256 prompt tokens:     105.2 ms =     11.3 output tokens = 0.044 per prompt token
+     512 prompt tokens:     267.2 ms =     28.6 output tokens = 0.056 per prompt token
+    1024 prompt tokens:     723.9 ms =     77.5 output tokens = 0.076 per prompt token
+    2048 prompt tokens:    2167.3 ms =    231.9 output tokens = 0.113 per prompt token
+    4096 prompt tokens:    7174.4 ms =    767.8 output tokens = 0.187 per prompt token
+    8192 prompt tokens:   25669.3 ms =   2747.0 output tokens = 0.335 per prompt token
+   16000 prompt tokens:   92248.1 ms =   9871.8 output tokens = 0.617 per prompt token

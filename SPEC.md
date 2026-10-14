@@ -88,14 +88,14 @@ tenant key ──► Rust gateway (axum) ──► vLLM (Gemma 4 E2B QAT w4a16, 
 | M5 | Does an adapter earn its place? | One tenant's task, base model vs its LoRA, scored by a grader on held-out examples. Optional: train on Tinker for that category. |
 | M6 | What a tenant pays | The VM's monthly list price (fetched from the pricing source during the week, cited) divided across the M2 tenant count, next to the same tenants' token volume at public per-token API prices (also fetched and cited). |
 
-## Day-1 checks (all untested; each decides part of the build)
+## Day-1 checks (all pass; numbers in `day1/RESULTS.md`)
 
-- [ ] vLLM 0.29.0 `--enable-lora` with Gemma 4 E2B **QAT w4a16 (Marlin)** on SM 7.5. Fallback: bf16
+- [x] vLLM 0.29.0 `--enable-lora` with Gemma 4 E2B **QAT w4a16 (Marlin)** on SM 7.5. Fallback: bf16
       build with LoRA, or per-tenant system prompt + output schema with no adapter.
-- [ ] Per-request prefix-cache salt in vLLM 0.29.0. Fallback: prefix caching off, and say so.
-- [ ] vLLM priority scheduling flag in 0.29.0 (nice to have; the gateway does fairness either way).
-- [ ] Host RAM: 7.8 GB plus 16 GB swap with LoRA enabled. Watch EngineCore RSS at load.
-- [ ] Does `usage` come back on streamed responses (`stream_options.include_usage`)? The ledger needs it.
+- [x] Per-request prefix-cache salt in vLLM 0.29.0. Fallback: prefix caching off, and say so.
+- [x] vLLM priority scheduling flag in 0.29.0 (nice to have; the gateway does fairness either way).
+- [x] Host RAM: 7.8 GB plus 16 GB swap with LoRA enabled. Watch EngineCore RSS at load.
+- [x] Does `usage` come back on streamed responses (`stream_options.include_usage`)? The ledger needs it.
 
 ## Tenants and first users
 

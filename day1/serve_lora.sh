@@ -1,6 +1,6 @@
 #!/bin/bash
 # Start vLLM on the T4 with multi-LoRA, using the rig's tpu.env for every serving value (as ~/bin/vllm-t4
-# does), without the drafter, and sample EngineCore RSS + swap every 2 s into day1/rss.log.
+# does), without the drafter, and sample EngineCore RSS + swap every 2 s into $RSS_LOG (default day1/rss.<time>.log).
 # Writes the rig's run/vllm.pid, so `vllm-t4 stop` stops it.
 # usage: day1/serve_lora.sh <adapter_dir> [extra vllm args...]
 set -e
@@ -24,7 +24,7 @@ nohup "$(rigval PYTHON_BIN)" -m vllm.entrypoints.openai.api_server \
   "$@" >> "$rig/run/vllm.log" 2>&1 &
 pid=$!; disown; echo $pid > "$rig/run/vllm.pid"; echo "pid $pid"
 nohup bash -c "while [ -d /proc/$pid ]; do
-  e=\$(ps -eo pid=,args= | awk '\$2==\"VLLM::EngineCore\"{print \$1; exit}')
+  e=\$(ps -eo pid=,ppid=,args= | awk '\$2==$pid && \$3==\"VLLM::EngineCore\"{print \$1; exit}')
   echo \"\$(date +%T) api_rss_kb=\$(awk '/VmRSS/{print \$2}' /proc/$pid/status 2>/dev/null) engine_rss_kb=\$(awk '/VmRSS/{print \$2}' /proc/\$e/status 2>/dev/null) engine_swap_kb=\$(awk '/VmSwap/{print \$2}' /proc/\$e/status 2>/dev/null) mem_avail_kb=\$(awk '/MemAvailable/{print \$2}' /proc/meminfo) swap_used_kb=\$(awk '/SwapTotal/{t=\$2}/SwapFree/{f=\$2}END{print t-f}' /proc/meminfo) vram_mib=\$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits)\"
-  sleep 2; done" > "$here/rss.log" 2>&1 &
+  sleep 2; done" > "${RSS_LOG:-$here/rss.$(date +%Y%m%dT%H%M%S).log}" 2>&1 &
 disown

@@ -1,0 +1,14 @@
+    16.98 s  filler0
+    17.48 s  high
+    17.99 s  low0
+    18.50 s  low1
+    19.00 s  low2
+    24.12 s  filler1
+    31.67 s  filler2
+    38.90 s  filler3
+    45.87 s  filler4
+    52.74 s  filler5
+    57.93 s  filler6
+    62.40 s  filler7
+finish order of queued requests: ['high', 'low0', 'low1', 'low2']
+high finished before every low: True
