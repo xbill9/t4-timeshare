@@ -263,10 +263,10 @@ A sent 22.0% of the tokens and used 27.2% of the GPU. A flat price per token wou
 | :--- | :--- | :--- | :--- |
 | B and C, median first token under load | 29.90 s | 🥈 6.52 s | 🥇 7.06 s |
 | B and C, 95th percentile | 44.49 s | 🥈 14.71 s | 🥇 12.11 s |
-| Keys per customer | ❌ | ❌ | 🟢 |
-| Adapter only its owner can call | ❌ | ❌ | 🟢 |
-| Prefix cache per customer | ❌ | ❌ | 🟢 |
-| Per-customer bill, checked against vLLM | ❌ | ❌ | 🟢 |
+| Keys per customer | ❌ no | ❌ no | 🟢 yes |
+| Adapter only its owner can call | ❌ no | ❌ no | 🟢 yes |
+| Prefix cache per customer | ❌ no | ❌ no | 🟢 yes |
+| Per-customer bill, checked against vLLM | ❌ no | ❌ no | 🟢 yes |
 
 ---
 

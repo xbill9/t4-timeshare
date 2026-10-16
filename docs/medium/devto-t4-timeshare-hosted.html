@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Renting Out One T4 to Three Customers: Gemma 4, vLLM Multi-LoRA and a Rust Gateway</title>
+  <meta name="description" content="One Tesla T4 serving Gemma 4 E2B to three paying tenants. A 245-line Rust gateway gives each one a key, its own adapter, a priority and a private cache, and bills them by GPU time from a ledger that matches vLLM&#x27;s counters to the token." />
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>
+    body{font-family:-apple-system,'Segoe UI',Roboto,'Liberation Sans',Arial,sans-serif;
+         font-size:18px;line-height:1.58;max-width:42em;color:#242424;}
+    h1,h2,h3,h4{font-weight:700;line-height:1.25;margin-top:1.8em;}
+    h4{font-size:1.25em;}
+    img{max-width:100%;height:auto;display:block;margin:1.6em 0;}
+    pre{background:#f7f7f7;border:1px solid #e6e6e6;border-radius:4px;
+        padding:12px 14px;overflow-x:auto;font-size:14px;line-height:1.45;}
+    code{font-family:'Liberation Mono',Menlo,Consolas,monospace;}
+    :not(pre)>code{background:#f2f2f2;padding:1px 5px;border-radius:3px;font-size:.9em;}
+    blockquote{border-left:3px solid #ddd;margin-left:0;padding-left:1em;color:#555;}
+    hr{border:0;border-top:1px solid #e6e6e6;margin:2.4em 0;}
+  </style>
+</head>
+<body>
+<p><em>This is a submission for the <a
+href="https://dev.to/challenges/hacktoberfest-week2-2026-10-12">Hacktoberfest
+Open-Source AI Challenge Week 2: Side Hustle</a></em></p>
+<figure><img src="https://raw.githubusercontent.com/xbill9/t4-timeshare/main/docs/medium/img/devto-cover.248ace7f.jpg" alt="Renting Out One T4 to Three Customers: Gemma 4, vLLM Multi-LoRA and a Rust Gateway" /></figure>
+<p>This article provides a step by step guide to renting out one NVIDIA
+T4 on a Google Cloud VM to several small customers at once, with Gemma 4
+E2B served by vLLM and a small Rust gateway in front. Every log, script
+and number is committed.</p>
+<p><a
+href="https://github.com/xbill9/t4-timeshare">https://github.com/xbill9/t4-timeshare</a></p>
+<p><strong>One customer sending 4,000-token prompts pushes everyone
+else's first token from 0.28 s to 29.90 s on a shared T4. vLLM's
+priority scheduling brings that back to 6.52 s. The gateway adds what
+turns a shared GPU into a business: keys, a fine-tune per customer that
+no one else can call, a prefix cache per customer, and a ledger that
+matched vLLM's own token counters exactly. Billed by GPU time, the
+long-prompt customer pays 27.2% of the VM for 22.0% of the
+tokens.</strong></p>
+<hr />
+<h4 id="what-i-built">What I Built</h4>
+<p>A small AI job costs too much either way. A GPU of your own sits idle
+most of the day. A per-token API bill grows with every customer you add,
+and every prompt leaves your building.</p>
+<p>The side hustle is the middle: one person rents one T4, and sells
+shares of it to a few small businesses at a flat monthly price. Each
+customer gets:</p>
+<ul>
+<li>an API key that works with any OpenAI client</li>
+<li>its own fine-tuned adapter on the shared base model, callable by
+that customer only</li>
+<li>a prefix cache that other customers cannot read through response
+timing</li>
+<li>a bill computed from metered tokens, weighted by what each token
+costs the GPU</li>
+</ul>
+<p>The operator gets one config file and a ledger.</p>
+<p>The three demo tenants are picked so each one loads the T4
+differently:</p>
+<p><img src="https://raw.githubusercontent.com/xbill9/t4-timeshare/main/docs/medium/img/devto-t4-timeshare-table-1.png"
+alt="Table: Tenant, Job, Shape" /></p>
+<hr />
+<h4 id="demo">Demo</h4>
+<p>The gateway listens on port 8080 and speaks the OpenAI chat API.
+<code>day3/demo.sh</code>, run with <code>bash -v</code>:</p>
+<pre class="text"><code>curl -s localhost:8080/v1/chat/completions -H &quot;Authorization: Bearer demo-key-B&quot; \
+  -d &#39;{&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Label this email: my parcel arrived broken&quot;}],&quot;max_tokens&quot;:20}&#39; \
+  | jq -c &#39;{model, usage: .usage.total_tokens}&#39;
+{&quot;model&quot;:&quot;xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4&quot;,&quot;usage&quot;:37}
+curl -s localhost:8080/v1/chat/completions -H &quot;Authorization: Bearer demo-key-C&quot; \
+  -d &#39;{&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Label this email: my parcel arrived broken&quot;}],&quot;max_tokens&quot;:20}&#39; \
+  | jq -c &#39;{model, usage: .usage.total_tokens}&#39;
+{&quot;model&quot;:&quot;rand&quot;,&quot;usage&quot;:26}
+curl -s localhost:8080/v1/chat/completions -H &quot;Authorization: Bearer demo-key-B&quot; \
+  -d &#39;{&quot;model&quot;:&quot;rand&quot;,&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;hi&quot;}]}&#39; -w &#39; %{http_code}\n&#39;
+{&quot;error&quot;:&quot;adapter belongs to another tenant&quot;} 403
+curl -s localhost:8080/v1/chat/completions -d &#39;{&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;hi&quot;}]}&#39; -w &#39; %{http_code}\n&#39;
+{&quot;error&quot;:&quot;missing or unknown key&quot;} 401
+tail -4 ledger.jsonl
+{&quot;completion_tokens&quot;:20,&quot;model&quot;:&quot;xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4&quot;,&quot;prompt_tokens&quot;:17,&quot;queue_ms&quot;:0.0006799999999999999,&quot;status&quot;:200,&quot;tenant&quot;:&quot;B&quot;,&quot;total_ms&quot;:355.14126200000004,&quot;ts&quot;:1792165075.2638927}
+{&quot;completion_tokens&quot;:9,&quot;model&quot;:&quot;rand&quot;,&quot;prompt_tokens&quot;:17,&quot;queue_ms&quot;:0.000778,&quot;status&quot;:200,&quot;tenant&quot;:&quot;C&quot;,&quot;total_ms&quot;:498.805413,&quot;ts&quot;:1792165075.7809048}
+{&quot;refused&quot;:&quot;adapter belongs to another tenant&quot;,&quot;status&quot;:403,&quot;tenant&quot;:&quot;B&quot;,&quot;ts&quot;:1792165075.7979941}
+{&quot;refused&quot;:&quot;missing or unknown key&quot;,&quot;status&quot;:401,&quot;tenant&quot;:null,&quot;ts&quot;:1792165075.8125255}</code></pre>
+<p>The same request from B and C reaches two different models: B gets
+the base model, C gets its adapter without naming it. B asking for C's
+adapter is refused, and so is a request with no key. Every one of the
+four lands in the ledger.</p>
+<hr />
+<h4 id="code">Code</h4>
+<p><a
+href="https://github.com/xbill9/t4-timeshare">https://github.com/xbill9/t4-timeshare</a></p>
+<p><img src="https://raw.githubusercontent.com/xbill9/t4-timeshare/main/docs/medium/img/devto-t4-timeshare-table-2.png"
+alt="Table: Path, What" /></p>
+<hr />
+<h4 id="how-i-built-it">How I Built It</h4>
+<h4 id="at-this-point-you-should-have">At This Point You Should
+Have…</h4>
+<ul>
+<li>A Google Cloud VM with one NVIDIA T4. This one is an
+<code>n1-standard-2</code> in <code>us-west2-b</code></li>
+<li>vLLM 0.29.0 serving
+<code>xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4</code>, Gemma 4
+E2B with Google's quantization-aware 4-bit weights, fp16, at most 8
+sequences at once</li>
+<li>Rust, for the gateway</li>
+<li>A clone:
+<code>git clone https://github.com/xbill9/t4-timeshare</code></li>
+</ul>
+<hr />
+<h4 id="step-1--check-the-engine-can-do-multi-tenant-work">Step 1 —
+Check the Engine Can Do Multi-Tenant Work</h4>
+<p>Four features decide whether one vLLM can serve several paying
+customers. Each was checked on the T4 before any gateway code was
+written (<code>day1/RESULTS.md</code>):</p>
+<p><img src="https://raw.githubusercontent.com/xbill9/t4-timeshare/main/docs/medium/img/devto-t4-timeshare-table-3.png"
+alt="Table: Check, Result" /></p>
+<p>The 6 of 6 is what makes per-customer fine-tunes cheap: requests for
+different adapters share one batch on one GPU, and each still gets its
+own model's answer.</p>
+<hr />
+<h4 id="step-2--measure-what-hurts-on-a-t4">Step 2 — Measure What Hurts
+on a T4</h4>
+<p>A customer's request costs the GPU in two parts: reading the prompt
+(prefill) and writing the answer (decode).
+<code>day1/prefill_cost.py</code> times prefill alone, one request at a
+time, 5 per length, with the prefix cache unable to help:</p>
+<pre class="text"><code>prompt ~  256: median    106.9 ms  min    103.4  max    108.7
+prompt ~  512: median    262.0 ms  min    258.9  max    267.9
+prompt ~ 1024: median    730.8 ms  min    717.0  max    737.4
+prompt ~ 2048: median   2180.8 ms  min   2149.6  max   2223.6
+prompt ~ 4096: median   7122.4 ms  min   7050.4  max   7363.7
+prompt ~ 8192: median  25364.0 ms  min  25261.6  max  25697.8
+prefill fit over 30 requests: -12.8 ms + 374.32 us x n + 336.9989 ns x n^2; worst error 2.1%
+decode: median 9.34 ms per output token over 5 pairs (256 tokens minus 1 token, same length prompt)</code></pre>
+<p>Prefill grows with the square of the prompt. One 4,096-token prompt
+costs as much GPU time as 767.8 output tokens. On a T4 the customer who
+hurts the others is the one with long prompts, more than the one with
+many requests.</p>
+<hr />
+<h4 id="step-3--watch-one-customer-stall-the-others">Step 3 — Watch One
+Customer Stall the Others</h4>
+<p><code>day2/m1_direct.py</code> runs the three tenants straight
+against vLLM. B and C each send one 512-token request every 2 seconds
+and stream 64 tokens back. For 180 seconds, A keeps four 4,096-token
+summaries in flight. Every prompt starts with a random tag, so nothing
+comes from cache.</p>
+<p>First come, first served, every request in the same queue:</p>
+<pre class="text"><code>[quiet] B: 90/90 ok  first token median    0.29 s  95th    0.29 s  max    0.34 s | total median    0.98 s  95th    0.99 s
+[flood] A: 16/16 ok  first token median   30.82 s  95th   45.37 s  max   46.12 s | total median   50.08 s  95th   54.03 s
+[flood] B: 90/90 ok  first token median   29.78 s  95th   44.47 s  max   47.81 s | total median   35.07 s  95th   48.91 s</code></pre>
+<p>A support-email triage that answered in a third of a second now waits
+half a minute for its first word. B pays for A's prompts.</p>
+<hr />
+<h4 id="step-4--put-the-gateway-in-front">Step 4 — Put the Gateway in
+Front</h4>
+<p><code>gateway/src/main.rs</code> does six things per request, in
+order:</p>
+<ol type="1">
+<li><strong>Key to tenant.</strong>
+<code>Authorization: Bearer &lt;key&gt;</code> looks the tenant up in
+<code>tenants.toml</code>. No key or an unknown one: 401.</li>
+<li><strong>Model check.</strong> The tenant gets its own adapter by
+default, or the base model on request. Another tenant's adapter:
+403.</li>
+<li><strong>Priority.</strong> The tenant's priority goes into the
+request body, overwriting whatever the client sent.</li>
+<li><strong>Cache salt.</strong> <code>cache_salt</code> is set to the
+tenant's name, so cached prompts are shared within a tenant and never
+across tenants.</li>
+<li><strong>In-flight cap.</strong> The request waits for one of the
+tenant's slots, a <code>tokio</code> semaphore per tenant.</li>
+<li><strong>Ledger.</strong> When the response ends, or the client
+disconnects, one JSON line is written with the tenant, the model, the
+status, vLLM's own prompt and output token counts, the time spent
+waiting for a slot and the total time.</li>
+</ol>
+<p>The demo tenants:</p>
+<pre class="toml"><code>[[tenant]]
+name = &quot;A&quot;
+key = &quot;demo-key-A&quot;
+max_inflight = 1
+priority = 10
+ 
+[[tenant]]
+name = &quot;C&quot;
+key = &quot;demo-key-C&quot;
+adapter = &quot;rand&quot;
+max_inflight = 8
+priority = 0</code></pre>
+<p>A has one slot and runs last. B and C have 8 slots each, the most
+vLLM runs at once. C's <code>rand</code> adapter is a random rank-8 LoRA
+from <code>day1/make_adapters.py</code>, standing in for a customer's
+fine-tune.</p>
+<p>Streaming responses pass straight through. The gateway watches the
+stream for the one chunk that carries <code>usage</code> and records it
+when the stream ends. A request that dies halfway is still in the
+ledger, and its slot is released at that moment.</p>
+<hr />
+<h4 id="step-5--check-isolation">Step 5 — Check Isolation</h4>
+<pre class="shell"><code>python3 day3/isolation.py
+PASS  no key: 401
+PASS  unknown key: 401
+PASS  B asks for C&#39;s adapter: 403
+PASS  B asks for a model that is not served: 404
+PASS  B gets the base model: xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4
+PASS  C gets its own adapter by default: rand
+PASS  C&#39;s answer differs from the base model&#39;s: &#39;Here are a few examples of how a spare G&#39; vs &#39;Here are three common uses for a spare G&#39;
+PASS  B&#39;s repeat is served from B&#39;s cache: 2400 hit tokens (first send 0)
+PASS  A sending B&#39;s prompt gets none of B&#39;s cache: 0 hit tokens
+9 of 9 pass</code></pre>
+<p>The last two lines are the privacy check. When B sends a long prompt
+twice, the second send is served from cache. A sends the identical
+prompt and gets nothing from B's cache, so A cannot tell from response
+time whether B ever sent it. The hit counts come from vLLM's
+<code>/metrics</code>, not from timing.</p>
+<hr />
+<h4 id="step-6--rerun-the-noisy-neighbour-through-the-gateway">Step 6 —
+Rerun the Noisy Neighbour Through the Gateway</h4>
+<pre class="shell"><code>day3/run_m1.sh
+python3 day3/compare.py
+run                                   B+C first token median    95th     max  B+C done  A done
+quiet, no A (direct)                                  0.28 s  0.29 s  0.37 s       180       0
+direct, first come first served                      29.90 s 44.49 s 47.81 s       180      16
+direct, A at low priority                             6.52 s 14.71 s 16.31 s       180      16
+gateway: priority + A capped at 1                     7.06 s 12.11 s 13.55 s       180       7</code></pre>
+<p>Priority does most of the work: B and C's median wait falls from
+29.90 s to 6.52 s. Capping A at one request shortens the worst waits,
+from 14.71 s to 12.11 s at the 95th percentile. A pays for it, finishing
+7 summaries in the window against 16.</p>
+<p>B and C still wait about 7 s, close to one 4,096-token prefill (7.1 s
+in Step 2). A request that arrives while A's prompt is being read waits
+for that read to finish.</p>
+<p>🔎 <strong>Tip: size the cap above what the tenant needs.</strong> B
+sends a request every 2 seconds and each one spends about 12 seconds on
+the GPU under load, so B needs about 6 slots. With B capped at 4, the
+same run gave B a median time inside vLLM of 11.61 s and a median wait
+for a gateway slot of 37.77 s (<code>day3/cap4/</code>). A cap is for
+the customer you want to slow down.</p>
+<hr />
+<h4 id="step-7--check-the-ledger-against-vllm">Step 7 — Check the Ledger
+Against vLLM</h4>
+<p>A bill is only as good as its meter. <code>day3/bill.py</code> adds
+up the ledger and compares it with vLLM's own
+<code>prompt_tokens_total</code> and
+<code>generation_tokens_total</code> counters, read before and after the
+run:</p>
+<pre class="text"><code>ledger vs vLLM counters: prompt 122,442 vs 122,442, output 12,416 vs 12,416; match: True</code></pre>
+<p>Every token vLLM processed in the run is attributed to a tenant, and
+no tenant is charged for a token vLLM did not process.</p>
+<hr />
+<h4 id="step-8--send-the-bill">Step 8 — Send the Bill</h4>
+<p>The VM's on-demand price comes from the Cloud Billing Catalog API,
+fetched during the build (<code>day3/pricing.us-west2.txt</code>):</p>
+<pre class="text"><code>T4 0.410000 + 2 vCPU x 0.037970 + 7.5 GiB x 0.005089 = 0.5241 USD/hour
+x 730 hours = 382.60 USD/month</code></pre>
+<p><code>bill.py</code> prices each request in GPU seconds, using the
+prefill fit from Step 2 plus 9.34 ms per output token, and splits the
+month by each tenant's share. Over the gateway run:</p>
+<pre class="text"><code>tenant   requests refused  prompt tok  output tok token share     GPU s GPU share  bill USD
+A               7       0      28,718         896       22.0%      58.7     27.2%    104.22
+B              90       0      46,803       5,760       39.0%      78.4     36.4%    139.11
+C              90       0      46,921       5,760       39.1%      78.5     36.4%    139.26</code></pre>
+<p>A sent 22.0% of the tokens and used 27.2% of the GPU. A flat price
+per token would undercharge the long-prompt customer and pass the
+difference on to the other two. Weighting prompt tokens by their
+measured prefill cost puts it back.</p>
+<hr />
+<h4 id="compare-and-contrast">Compare and Contrast</h4>
+<p><img src="https://raw.githubusercontent.com/xbill9/t4-timeshare/main/docs/medium/img/devto-t4-timeshare-table-4.png"
+alt="Table: Straight to vLLM, vLLM with priority, Through the gateway" /></p>
+<hr />
+<h4 id="so-which-one">So, Which One?</h4>
+<p>Turn on <code>--scheduling-policy priority</code> for any shared
+vLLM: on these runs it is the single biggest change, and it costs one
+flag. Selling the GPU takes the gateway, because priority alone still
+lets any client claim any priority, call any adapter and read any cache.
+The gateway sets all three from the key.</p>
+<hr />
+<h4 id="prior-work">Prior Work</h4>
+<ul>
+<li><strong>The T4 rig</strong>: the VM, vLLM 0.29.0 install, Turing
+patch and the <code>vllm-t4</code> script come from my earlier
+<code>gemma4-dev</code> T4 serving work.</li>
+<li><strong><a
+href="https://github.com/xbill9/gemma-rust">gemma-rust</a></strong>:
+reqwest client patterns for the OpenAI-compatible endpoint.</li>
+<li><strong><a
+href="https://github.com/xbill9/dev-hacktoberfest">dev-hacktoberfest</a></strong>
+(Week 1): every result checked by code that did not produce it.</li>
+<li><strong>Open source used</strong>: <a
+href="https://github.com/vllm-project/vllm">vLLM</a> (Apache 2.0), Gemma
+4 E2B (Gemma terms), <a
+href="https://github.com/tokio-rs/axum">axum</a>, <a
+href="https://github.com/seanmonstar/reqwest">reqwest</a>, <a
+href="https://github.com/tokio-rs/tokio">tokio</a>.</li>
+</ul>
+<hr />
+<h4 id="why-does-open-innovation-matter">Why Does Open Innovation
+Matter?</h4>
+<p>Every part of this business needs the weights.</p>
+<ul>
+<li><strong>The model runs on hardware the operator controls.</strong>
+That is possible only with downloadable weights, and it is what lets the
+operator promise a customer that its emails never reach a model
+vendor.</li>
+<li><strong>One base model, one small adapter per customer.</strong>
+Per-customer fine-tunes that share one GPU and one batch need the
+weights and an engine that serves adapters side by side. vLLM's
+multi-LoRA does that on a 2018-era T4.</li>
+<li><strong>The cost is flat.</strong> The operator pays 382.60 USD a
+month whatever the customers send. A heavy customer costs the others
+waiting time, which the scheduler controls, and costs the operator
+nothing extra.</li>
+<li><strong>Everything can be checked.</strong> Engine, gateway and
+model are open, so the cache isolation and the bill are tested against
+vLLM's own counters, and a customer can read the code that bills
+them.</li>
+</ul>
+<hr />
+<h4 id="prize-categories">Prize Categories</h4>
+<p><strong>Gemma</strong>: Gemma 4 E2B, served locally on a T4 with
+vLLM, with per-customer LoRA adapters on Google's quantization-aware
+4-bit weights.</p>
+<hr />
+<h4 id="summary">Summary</h4>
+<p>The goal of this project was to sell shares of one T4 to several
+small customers without one customer ruining the service for the others.
+The key to the solution was vLLM's priority scheduling, adapters and
+cache salt, controlled per customer by a gateway that holds the keys.
+The results were:</p>
+<ul>
+<li>🟢 A long-prompt customer pushed other customers' first token from
+0.28 s to 29.90 s. Priority brought it to 6.52 s; the gateway's cap on
+that customer brought the 95th percentile from 14.71 s to 12.11 s.</li>
+<li>🟢 9 of 9 isolation checks pass: keys, adapter ownership and a
+prefix cache per customer.</li>
+<li>🟢 The ledger matched vLLM's token counters exactly: 122,442 prompt
+and 12,416 output tokens.</li>
+<li>🟢 A per-adapter customer runs in the same batch as base-model
+customers, at about the same speed.</li>
+<li>⚠️ B and C still wait about one long prefill, around 7 s, while A is
+active. Chunking long prompts further, or giving A its own hours, are
+the next steps.</li>
+<li>❌ A's throughput falls from 16 summaries to 7 in the window. That
+is the price A pays for a cheaper share.</li>
+</ul>
+<p>Scope: one T4 on one Google Cloud VM, vLLM 0.29.0, one 180-second run
+per configuration. The two direct runs and the gateway run used separate
+server starts with the same flags; in the direct runs C used the base
+model, through the gateway it used its adapter. The token bucket, the
+per-customer fair queue and a tenant-count sweep from
+<code>SPEC.md</code> are not built. The VM price excludes disk and
+network.</p>
+<p>The strategy for renting out one T4 to several customers with Gemma 4
+and vLLM was validated with an incremental step by step approach.</p>
+<hr />
+<h4 id="references">References</h4>
+<ul>
+<li><a
+href="https://dev.to/challenges/hacktoberfest-week2-2026-10-12">Hacktoberfest
+Open-Source AI Challenge, Week 2</a></li>
+<li><a href="https://github.com/xbill9/t4-timeshare">t4-timeshare on
+GitHub</a></li>
+<li><a href="https://github.com/vllm-project/vllm">vLLM</a></li>
+<li><a
+href="https://huggingface.co/xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4">Gemma
+4 E2B, 4-bit build used here</a></li>
+<li><a href="https://cloud.google.com/compute/gpus-pricing">Google Cloud
+GPU pricing</a></li>
+</ul>
+</body>
+</html>
