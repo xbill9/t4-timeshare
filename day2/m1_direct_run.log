@@ -1,0 +1,15 @@
+model xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4; words for 512 tokens: 461, for 4096: 3860; priority=False
+[quiet] B: 90/90 ok  first token median    0.29 s  95th    0.29 s  max    0.34 s | total median    0.98 s  95th    0.99 s
+[quiet] C: 90/90 ok  first token median    0.27 s  95th    0.28 s  max    0.37 s | total median    1.22 s  95th    1.24 s
+[flood] A: 16/16 ok  first token median   30.82 s  95th   45.37 s  max   46.12 s | total median   50.08 s  95th   54.03 s
+[flood] B: 90/90 ok  first token median   29.78 s  95th   44.47 s  max   47.81 s | total median   35.07 s  95th   48.91 s
+[flood] C: 90/90 ok  first token median   29.99 s  95th   44.46 s  max   46.58 s | total median   34.99 s  95th   48.35 s
+✅ Sent SIGTERM to vLLM (pid 37376). VRAM is released on exit.
+
+The T4 stays attached and the VM stays billed — stopping the server is not releasing capacity here.
+vllm-t4: swap already on: /opt1/swapfile (16777212 KB)
+pid 44892
+model xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4; words for 512 tokens: 466, for 4096: 3825; priority=True
+[flood] A: 16/16 ok  first token median   45.34 s  95th   55.64 s  max   55.67 s | total median   54.59 s  95th   64.48 s
+[flood] B: 90/90 ok  first token median    6.31 s  95th   14.74 s  max   16.05 s | total median   12.43 s  95th   21.49 s
+[flood] C: 90/90 ok  first token median    7.09 s  95th   14.67 s  max   16.31 s | total median   12.71 s  95th   21.74 s
