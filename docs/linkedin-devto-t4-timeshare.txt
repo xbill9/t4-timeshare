@@ -1,0 +1,16 @@
+Renting Out One T4 to Three Customers: Gemma 4, vLLM Multi-LoRA and a Rust Gateway
+
+One Tesla T4 serving Gemma 4 E2B to three paying tenants. A 245-line Rust gateway gives each one a key, its own adapter, a priority and a private cache, and bills them by GPU time from a ledger that matches vLLM's counters to the token.
+
+What is in it:
+
+- 🟢 A long-prompt customer pushed other customers' first token from 0.28 s to 29.90 s. Priority brought it to 6.52 s; the gateway's cap on that customer brought the 95th percentile from 14.71 s to 12.11 s.
+- 🟢 9 of 9 isolation checks pass: keys, adapter ownership and a prefix cache per customer.
+- 🟢 The ledger matched vLLM's token counters exactly: 122,442 prompt and 12,416 output tokens.
+- 🟢 A per-adapter customer runs in the same batch as base-model customers, at about the same speed.
+
+dev.to: https://dev.to/xbill/renting-out-one-t4-to-three-customers-gemma-4-vllm-multi-lora-and-a-rust-gateway-3322
+Medium: https://xbill999.medium.com/renting-out-one-t4-to-three-customers-gemma-4-vllm-multi-lora-and-a-rust-gateway-63bffa6ceff6
+Substack: https://xbill9.substack.com/p/renting-out-one-t4-to-three-customers
+The challenge: https://dev.to/challenges/hacktoberfest-week2-2026-10-12
+Source: https://github.com/xbill9/t4-timeshare
