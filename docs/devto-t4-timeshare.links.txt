@@ -5,5 +5,5 @@ substack   = https://xbill9.substack.com/p/renting-out-one-t4-to-three-customers
 builder    = SKIP
 challenge  = https://dev.to/challenges/hacktoberfest-week2-2026-10-12
 repo       = https://github.com/xbill9/t4-timeshare
-# the post itself; replace SKIP with its URL once posted
-linkedin   = SKIP
+# the announcement itself, posted 2026-10-16
+linkedin   = https://www.linkedin.com/feed/update/urn:li:activity:7516905787412213760/
