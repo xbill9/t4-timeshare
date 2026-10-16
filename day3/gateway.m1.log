@@ -1,0 +1,4 @@
+tenant A        adapter -      max_inflight 1 priority 10
+tenant B        adapter -      max_inflight 8 priority 0
+tenant C        adapter rand   max_inflight 8 priority 0
+listening on 127.0.0.1:8080

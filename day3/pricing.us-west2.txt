@@ -1,0 +1,4 @@
+source: Cloud Billing Catalog API, service 6F81-5844-456A (Compute Engine), fetched 2026-10-16T15:29:07+00:00
+3500-0487-459B  N1 Predefined Instance Ram running in Los Angeles        0.005089 USD per gibibyte hour  regions=['us-west2']
+8313-8197-C744  Nvidia Tesla T4 GPU running in Los Angeles               0.410000 USD per hour  regions=['us-west2']
+ADC5-CFA0-B149  N1 Predefined Instance Core running in Los Angeles       0.037970 USD per hour  regions=['us-west2']

@@ -1,0 +1,10 @@
+PASS  no key: 401
+PASS  unknown key: 401
+PASS  B asks for C's adapter: 403
+PASS  B asks for a model that is not served: 404
+PASS  B gets the base model: xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4
+PASS  C gets its own adapter by default: rand
+PASS  C's answer differs from the base model's: 'Here are a few examples of how a spare G' vs 'Here are three common uses for a spare G'
+PASS  B's repeat is served from B's cache: 2400 hit tokens (first send 0)
+PASS  A sending B's prompt gets none of B's cache: 0 hit tokens
+9 of 9 pass

@@ -1,0 +1,5 @@
+run                                   B+C first token median    95th     max  B+C done  A done
+quiet, no A (direct)                                  0.28 s  0.29 s  0.37 s       180       0
+direct, first come first served                      29.90 s 44.49 s 47.81 s       180      16
+direct, A at low priority                             6.52 s 14.71 s 16.31 s       180      16
+gateway: priority + A capped at 1                     7.06 s 12.11 s 13.55 s       180       7

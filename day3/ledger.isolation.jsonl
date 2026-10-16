@@ -1,0 +1,9 @@
+{"refused":"missing or unknown key","status":401,"tenant":null,"ts":1792164482.4780653}
+{"refused":"missing or unknown key","status":401,"tenant":null,"ts":1792164482.4792259}
+{"refused":"adapter belongs to another tenant","status":403,"tenant":"B","ts":1792164482.4800627}
+{"refused":"unknown model","status":404,"tenant":"B","ts":1792164482.4808433}
+{"completion_tokens":24,"model":"xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4","prompt_tokens":17,"queue_ms":0.0009490000000000001,"status":200,"tenant":"B","total_ms":453.20136,"ts":1792164482.9348495}
+{"completion_tokens":24,"model":"rand","prompt_tokens":17,"queue_ms":0.0007800000000000001,"status":200,"tenant":"C","total_ms":1320.7276860000002,"ts":1792164484.2581203}
+{"completion_tokens":1,"model":"xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4","prompt_tokens":2428,"queue_ms":0.000623,"status":200,"tenant":"B","total_ms":2890.4736390000003,"ts":1792164487.1946282}
+{"completion_tokens":1,"model":"xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4","prompt_tokens":2428,"queue_ms":0.000422,"status":200,"tenant":"B","total_ms":203.035514,"ts":1792164487.4112875}
+{"completion_tokens":1,"model":"xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4","prompt_tokens":2428,"queue_ms":0.000762,"status":200,"tenant":"A","total_ms":2807.157952,"ts":1792164490.232291}

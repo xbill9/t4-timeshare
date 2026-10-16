@@ -1,0 +1,18 @@
+curl -s localhost:8080/v1/chat/completions -H "Authorization: Bearer demo-key-B" \
+  -d '{"messages":[{"role":"user","content":"Label this email: my parcel arrived broken"}],"max_tokens":20}' \
+  | jq -c '{model, usage: .usage.total_tokens}'
+{"model":"xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4","usage":37}
+curl -s localhost:8080/v1/chat/completions -H "Authorization: Bearer demo-key-C" \
+  -d '{"messages":[{"role":"user","content":"Label this email: my parcel arrived broken"}],"max_tokens":20}' \
+  | jq -c '{model, usage: .usage.total_tokens}'
+{"model":"rand","usage":26}
+curl -s localhost:8080/v1/chat/completions -H "Authorization: Bearer demo-key-B" \
+  -d '{"model":"rand","messages":[{"role":"user","content":"hi"}]}' -w ' %{http_code}\n'
+{"error":"adapter belongs to another tenant"} 403
+curl -s localhost:8080/v1/chat/completions -d '{"messages":[{"role":"user","content":"hi"}]}' -w ' %{http_code}\n'
+{"error":"missing or unknown key"} 401
+tail -4 ledger.jsonl
+{"completion_tokens":20,"model":"xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4","prompt_tokens":17,"queue_ms":0.0006799999999999999,"status":200,"tenant":"B","total_ms":355.14126200000004,"ts":1792165075.2638927}
+{"completion_tokens":9,"model":"rand","prompt_tokens":17,"queue_ms":0.000778,"status":200,"tenant":"C","total_ms":498.805413,"ts":1792165075.7809048}
+{"refused":"adapter belongs to another tenant","status":403,"tenant":"B","ts":1792165075.7979941}
+{"refused":"missing or unknown key","status":401,"tenant":null,"ts":1792165075.8125255}

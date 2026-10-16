@@ -1,0 +1,4 @@
+{"completion_tokens":20,"model":"xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4","prompt_tokens":17,"queue_ms":0.0006799999999999999,"status":200,"tenant":"B","total_ms":355.14126200000004,"ts":1792165075.2638927}
+{"completion_tokens":9,"model":"rand","prompt_tokens":17,"queue_ms":0.000778,"status":200,"tenant":"C","total_ms":498.805413,"ts":1792165075.7809048}
+{"refused":"adapter belongs to another tenant","status":403,"tenant":"B","ts":1792165075.7979941}
+{"refused":"missing or unknown key","status":401,"tenant":null,"ts":1792165075.8125255}

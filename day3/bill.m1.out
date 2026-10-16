@@ -1,0 +1,6 @@
+tenant   requests refused  prompt tok  output tok token share     GPU s GPU share
+A               7       0      28,718         896       22.0%      58.7     27.2%
+B              90       0      46,803       5,760       39.0%      78.4     36.4%
+C              90       0      46,921       5,760       39.1%      78.5     36.4%
+served requests with no usage reported: 0
+ledger vs vLLM counters: prompt 122,442 vs 122,442, output 12,416 vs 12,416; match: True

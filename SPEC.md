@@ -116,16 +116,12 @@ what it would cost them, would they pay, what they asked for next).
 Hosted agent platforms and closed models; multi-GPU and autoscaling; a sign-up UI; payments. Demo
 tenants and data are invented for this project.
 
-## Schedule
+## What shipped (2026-10-16)
 
-| Day | Work |
-|---|---|
-| Tue 10-13 | Spec, repo, day-1 checks on the T4 |
-| Wed 10-14 | Gateway: keys, bucket, fair queue, ledger; unit tests |
-| Thu 10-15 | M1–M4 runs; keys to first users |
-| Fri 10-16 | M5–M6; first-user follow-up |
-| Sat 10-17 | Article, cover, evidence for every figure |
-| Sun 10-18 | Publish on DEV before 23:59 PDT; later commits noted in README |
+The demo is the minimal slice of the build above: keys, adapter ownership, per-tenant priority and
+in-flight cap, per-tenant cache salt, and a JSON-lines ledger reconciled against vLLM's counters.
+Not built: the token bucket, the fewest-tokens-in-flight queue, SQLite, and M2, M5 and M6 (the
+bill uses the VM's list price only). Results: `day3/`. Article: `docs/devto-t4-timeshare.md`.
 
 ## Prize categories
 

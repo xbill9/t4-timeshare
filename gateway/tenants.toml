@@ -1,0 +1,26 @@
+# Demo tenants. Keys are demo values, not secrets.
+listen = "127.0.0.1:8080"
+upstream = "http://127.0.0.1:8000"
+base_model = "xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4"
+
+# A: summarises long daily logs (4k-token prompts). One request on the GPU at a time, runs last.
+[[tenant]]
+name = "A"
+key = "demo-key-A"
+max_inflight = 1
+priority = 10
+
+# B: triages short support emails.
+[[tenant]]
+name = "B"
+key = "demo-key-B"
+max_inflight = 8
+priority = 0
+
+# C: tags product rows, and has its own fine-tune.
+[[tenant]]
+name = "C"
+key = "demo-key-C"
+adapter = "rand"
+max_inflight = 8
+priority = 0

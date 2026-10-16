@@ -1,0 +1,5 @@
+model xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4; words for 512 tokens: 466, for 4096: 3843; through http://127.0.0.1:8080
+[flood] A: 7/7 ok  first token median  105.93 s  95th  171.51 s  max  173.24 s | total median  118.38 s  95th  179.75 s
+[flood] B: 90/90 ok  first token median    7.22 s  95th   11.82 s  max   13.29 s | total median   14.02 s  95th   18.87 s
+[flood] C: 90/90 ok  first token median    7.00 s  95th   11.82 s  max   13.55 s | total median   13.46 s  95th   18.34 s
+vLLM counters over the run: {'vllm:prompt_tokens_total': 122442, 'vllm:generation_tokens_total': 12416}

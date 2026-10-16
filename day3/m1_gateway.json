@@ -1,0 +1,2449 @@
+{
+ "args": {
+  "out": "day3/m1_gateway.json",
+  "base": "http://127.0.0.1:8000",
+  "gateway": "http://127.0.0.1:8080",
+  "seconds": 180,
+  "interval": 2.0,
+  "a_conc": 4,
+  "phases": "flood"
+ },
+ "model": "xbill9/gemma-4-E2B-it-qat-q4_0-w4a16-ct-text-emb4",
+ "vllm_tokens": {
+  "vllm:prompt_tokens_total": 122442,
+  "vllm:generation_tokens_total": 12416
+ },
+ "rows": [
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 0.2514306230004877,
+   "ttft": 1.6690318750006554,
+   "total": 13.76901075800015,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 528,
+    "total_tokens": 592,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 1.4751803199997084,
+   "ttft": 6.952148092001153,
+   "total": 13.179184227001315,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 532,
+    "total_tokens": 596,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 4.251330750999841,
+   "ttft": 5.589545779001128,
+   "total": 10.574705278000692,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 514,
+    "total_tokens": 578,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 2.2512391800009937,
+   "ttft": 7.58872656099993,
+   "total": 12.574936652999895,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 3.4757103709998773,
+   "ttft": 6.365034256999934,
+   "total": 11.350592103000963,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 516,
+    "total_tokens": 580,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 6.251390764000462,
+   "ttft": 3.8237656019991846,
+   "total": 9.050291850000576,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 515,
+    "total_tokens": 579,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 5.475778406000245,
+   "ttft": 4.599645484999201,
+   "total": 9.826847696000186,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 7.475631209999847,
+   "ttft": 7.178427537999596,
+   "total": 13.569422628999746,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 524,
+    "total_tokens": 588,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "A",
+   "phase": "flood",
+   "start": 0.22935566700107302,
+   "ttft": 8.197530421999545,
+   "total": 20.989438139999038,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 4108,
+    "total_tokens": 4236,
+    "completion_tokens": 128
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 8.25142070199945,
+   "ttft": 7.0496948630006955,
+   "total": 13.27435929800049,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 516,
+    "total_tokens": 580,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 10.251144580000982,
+   "ttft": 6.197798514998794,
+   "total": 11.804372085000068,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 509,
+    "total_tokens": 573,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 11.475346535000426,
+   "ttft": 4.973949728000662,
+   "total": 10.580485103000683,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 9.47578541599978,
+   "ttft": 6.97300641900074,
+   "total": 12.580474460000914,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 527,
+    "total_tokens": 591,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 12.250546327999473,
+   "ttft": 4.828400492000583,
+   "total": 10.258470341001157,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 530,
+    "total_tokens": 594,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 13.475219543001003,
+   "ttft": 3.603506044999449,
+   "total": 9.035263054998723,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 14.251044943001034,
+   "ttft": 7.2738091049996,
+   "total": 13.5635723589985,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 513,
+    "total_tokens": 577,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 15.47796557500078,
+   "ttft": 6.57848466500036,
+   "total": 12.533950687999095,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 16.25114708900037,
+   "ttft": 6.259786491000341,
+   "total": 12.047981034000259,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 513,
+    "total_tokens": 577,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 17.47569584499979,
+   "ttft": 6.82965477200014,
+   "total": 11.369546828000239,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 523,
+    "total_tokens": 587,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 19.47519258200009,
+   "ttft": 4.195451552001032,
+   "total": 9.370429508000598,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 523,
+    "total_tokens": 587,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 18.25085205399955,
+   "ttft": 5.4204568570003175,
+   "total": 10.594935707000332,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 527,
+    "total_tokens": 591,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 21.475707514000533,
+   "ttft": 2.886407402998884,
+   "total": 7.8193898369991075,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 20.250635403999695,
+   "ttft": 4.055334964001304,
+   "total": 9.044990848000452,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 22.25121212600061,
+   "ttft": 6.047511840999505,
+   "total": 19.6272111269991,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 23.475679619999937,
+   "ttft": 5.817510122000385,
+   "total": 18.57862383599968,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 525,
+    "total_tokens": 589,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 24.25108459600051,
+   "ttft": 5.043763202998889,
+   "total": 18.35181055999965,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 512,
+    "total_tokens": 576,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 25.475228184001026,
+   "ttft": 4.939835888999369,
+   "total": 17.462956338998993,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 26.250571419001062,
+   "ttft": 4.164657620000071,
+   "total": 16.687828183999954,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 27.475131749000866,
+   "ttft": 2.940264845999991,
+   "total": 15.465428400999372,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 515,
+    "total_tokens": 579,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 28.251574358000653,
+   "ttft": 3.8234343650001392,
+   "total": 15.356258079998952,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 524,
+    "total_tokens": 588,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 29.475573240999438,
+   "ttft": 13.126048037000146,
+   "total": 19.550955799000803,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 510,
+    "total_tokens": 574,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 30.252664711999387,
+   "ttft": 12.685938001000977,
+   "total": 18.948184729000786,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 523,
+    "total_tokens": 587,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 31.476811427999564,
+   "ttft": 12.130402143000538,
+   "total": 18.068946432000303,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 525,
+    "total_tokens": 589,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 33.47645468900009,
+   "ttft": 11.10788829500052,
+   "total": 16.64112137600023,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 526,
+    "total_tokens": 590,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 34.25103083000067,
+   "ttft": 10.333459855999536,
+   "total": 15.868373600000268,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 32.25381056399965,
+   "ttft": 12.330978306999896,
+   "total": 17.866984193000462,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 527,
+    "total_tokens": 591,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 35.475738692999585,
+   "ttft": 9.550893780000479,
+   "total": 15.123041409000507,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 531,
+    "total_tokens": 595,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "A",
+   "phase": "flood",
+   "start": 0.2351771200010262,
+   "ttft": 37.7626443199988,
+   "total": 51.48536106999927,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 4085,
+    "total_tokens": 4213,
+    "completion_tokens": 128
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 36.251767817000655,
+   "ttft": 13.294301664998784,
+   "total": 19.624209575998975,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 520,
+    "total_tokens": 584,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 37.475793957999485,
+   "ttft": 12.641131412001414,
+   "total": 18.570328469000742,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 520,
+    "total_tokens": 584,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 38.252560234001066,
+   "ttft": 12.34387827199862,
+   "total": 18.1073877660001,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 520,
+    "total_tokens": 584,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 40.25052691000019,
+   "ttft": 11.473943678000069,
+   "total": 16.66679403499984,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 39.475192701000196,
+   "ttft": 12.25210704500023,
+   "total": 17.44279234900023,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 41.475125713001034,
+   "ttft": 10.244209513999522,
+   "total": 15.445003517999794,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 42.25112843700117,
+   "ttft": 9.766958820999207,
+   "total": 15.080157548998613,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 512,
+    "total_tokens": 576,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 43.476054237000426,
+   "ttft": 8.966029691000585,
+   "total": 14.960139503000391,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 513,
+    "total_tokens": 577,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 44.25114206500075,
+   "ttft": 12.10654014299871,
+   "total": 18.34286877699924,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 523,
+    "total_tokens": 587,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 45.47548021399962,
+   "ttft": 11.442259830000694,
+   "total": 17.29381051600103,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 510,
+    "total_tokens": 574,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 46.251178090000394,
+   "ttft": 11.077698989000055,
+   "total": 16.855668426000193,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 47.47522861899961,
+   "ttft": 10.95984503300133,
+   "total": 16.13747777900062,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 513,
+    "total_tokens": 577,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 48.250829519000035,
+   "ttft": 10.18556289800108,
+   "total": 15.365601608000361,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 49.47592531800001,
+   "ttft": 9.266718029999538,
+   "total": 14.140734656000859,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 50.251431744,
+   "ttft": 8.491095233001033,
+   "total": 13.81697813000028,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 519,
+    "total_tokens": 583,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 51.47576150200075,
+   "ttft": 7.691316779999397,
+   "total": 13.738854641000216,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 528,
+    "total_tokens": 592,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 52.251148122000814,
+   "ttft": 10.854545062999023,
+   "total": 17.07137008599966,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 516,
+    "total_tokens": 580,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 53.475163704000806,
+   "ttft": 10.138994340999488,
+   "total": 16.0119755479991,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 529,
+    "total_tokens": 593,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 54.25057159199969,
+   "ttft": 9.816040712001268,
+   "total": 15.546615838000434,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 529,
+    "total_tokens": 593,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 57.47562709600061,
+   "ttft": 8.007824125999832,
+   "total": 12.846231777999492,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 526,
+    "total_tokens": 590,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 55.47519036999984,
+   "ttft": 9.737900056001308,
+   "total": 14.848678891999953,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 530,
+    "total_tokens": 594,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 56.251391445999616,
+   "ttft": 8.961826107000888,
+   "total": 14.074135280001428,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 514,
+    "total_tokens": 578,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 58.25272217600104,
+   "ttft": 7.232264750999093,
+   "total": 12.52961341899936,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 59.47509396799978,
+   "ttft": 6.4289682369999355,
+   "total": 12.415165804000935,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 60.250560491000215,
+   "ttft": 9.544897347999722,
+   "total": 15.762805017000574,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 61.475173648001146,
+   "ttft": 9.304001616999813,
+   "total": 14.703578429998743,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 62.25065431400071,
+   "ttft": 8.528131921999375,
+   "total": 14.230103328998666,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 532,
+    "total_tokens": 596,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 65.47595230300067,
+   "ttft": 6.702115562999097,
+   "total": 11.536640058999183,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 526,
+    "total_tokens": 590,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 64.25103443199987,
+   "ttft": 7.637872352999693,
+   "total": 12.761841941000966,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 525,
+    "total_tokens": 589,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 63.475626464000015,
+   "ttft": 8.413024966999728,
+   "total": 13.537485242999537,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 66.25107677000051,
+   "ttft": 5.927250572000048,
+   "total": 11.200171054999373,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 512,
+    "total_tokens": 576,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 67.47523207300037,
+   "ttft": 5.129732317000162,
+   "total": 11.079984717000116,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 524,
+    "total_tokens": 588,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 68.25118567600111,
+   "ttft": 8.229234099999303,
+   "total": 14.430931544999112,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 69.4756937910006,
+   "ttft": 7.5365439130000595,
+   "total": 13.377632568999616,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 70.25132811299954,
+   "ttft": 7.198984716000268,
+   "total": 12.903913608000948,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 512,
+    "total_tokens": 576,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 72.25100048000058,
+   "ttft": 6.30285190199902,
+   "total": 11.443487135999021,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 71.47557830200094,
+   "ttft": 7.076919078999708,
+   "total": 12.219350956998824,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 515,
+    "total_tokens": 579,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 73.47531596699991,
+   "ttft": 5.077398016001098,
+   "total": 10.220569123999667,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 526,
+    "total_tokens": 590,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 74.25052927700017,
+   "ttft": 4.608853805999388,
+   "total": 9.892443796999942,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 525,
+    "total_tokens": 589,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 75.47511544200097,
+   "ttft": 3.7999917219985946,
+   "total": 9.806693802000154,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 76.25097277299938,
+   "ttft": 6.903933339001014,
+   "total": 13.141873351001777,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 527,
+    "total_tokens": 591,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 77.47835149400089,
+   "ttft": 6.215472452999165,
+   "total": 12.099626426999748,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 78.25117664000027,
+   "ttft": 5.892126546999862,
+   "total": 11.61765248499978,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 529,
+    "total_tokens": 593,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 81.47513504800008,
+   "ttft": 3.8065146370008733,
+   "total": 8.919032596999386,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 543,
+    "total_tokens": 607,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 79.47508995899989,
+   "ttft": 5.806409516000713,
+   "total": 10.92084143899956,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 514,
+    "total_tokens": 578,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 80.25057715900039,
+   "ttft": 5.029540957999416,
+   "total": 10.145488181000474,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 519,
+    "total_tokens": 583,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 82.25059246899946,
+   "ttft": 3.367512833001456,
+   "total": 8.595610127000327,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 83.47573984600058,
+   "ttft": 2.5009426590004296,
+   "total": 8.469112871000107,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 519,
+    "total_tokens": 583,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 84.25136416100031,
+   "ttft": 5.617646353999589,
+   "total": 11.849791534999895,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 85.47793027999978,
+   "ttft": 4.915938297001048,
+   "total": 10.801923955001257,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 513,
+    "total_tokens": 577,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 86.25053740800104,
+   "ttft": 4.593312391998552,
+   "total": 10.330183479998595,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 523,
+    "total_tokens": 587,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 89.47587739000119,
+   "ttft": 2.4678166059984505,
+   "total": 7.623941684998499,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 524,
+    "total_tokens": 588,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 87.47508188100073,
+   "ttft": 4.4688075379999646,
+   "total": 9.625438106999354,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 515,
+    "total_tokens": 579,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 88.25066786200114,
+   "ttft": 3.692923577998954,
+   "total": 8.851518802999635,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 90.2511075880011,
+   "ttft": 2.001837087998865,
+   "total": 7.143215293999674,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 525,
+    "total_tokens": 589,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 91.47562863200073,
+   "ttft": 1.2558507049998298,
+   "total": 7.375103999998828,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 523,
+    "total_tokens": 587,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 92.2534392510006,
+   "ttft": 4.326799598000434,
+   "total": 17.79211160399973,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 511,
+    "total_tokens": 575,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 93.47511295500044,
+   "ttft": 3.624989738000295,
+   "total": 16.74588344299991,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 514,
+    "total_tokens": 578,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 94.25062480499946,
+   "ttft": 3.141130117001012,
+   "total": 16.544275259000642,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 514,
+    "total_tokens": 578,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 95.47525621299974,
+   "ttft": 3.375094897000963,
+   "total": 15.64381102399966,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 525,
+    "total_tokens": 589,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 96.25135706199944,
+   "ttft": 2.5997260520016425,
+   "total": 14.86979704300029,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 97.475747202001,
+   "ttft": 8.741820673998518,
+   "total": 14.876670993999142,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 98.25113078499999,
+   "ttft": 7.966765048000525,
+   "total": 14.282078362999528,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 99.47595859499961,
+   "ttft": 11.317662904000827,
+   "total": 17.685309984000924,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 100.25898978999976,
+   "ttft": 10.861803988000247,
+   "total": 17.069215363000694,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 519,
+    "total_tokens": 583,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 101.47579683500044,
+   "ttft": 10.241092533999108,
+   "total": 16.19608404599967,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 524,
+    "total_tokens": 588,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 102.25112653200085,
+   "ttft": 10.101215859998774,
+   "total": 15.990974095999263,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 513,
+    "total_tokens": 577,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 103.47586526800114,
+   "ttft": 8.876837599998908,
+   "total": 14.768024148999757,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 520,
+    "total_tokens": 584,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "A",
+   "phase": "flood",
+   "start": 0.23766649000026518,
+   "ttft": 105.93445153200082,
+   "total": 118.38025656299942,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 4109,
+    "total_tokens": 4237,
+    "completion_tokens": 128
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 104.25137929599987,
+   "ttft": 8.615212906999659,
+   "total": 15.096445351000511,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 527,
+    "total_tokens": 591,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 105.47569736200057,
+   "ttft": 7.848156811000081,
+   "total": 14.40281888699974,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 106.25062771400007,
+   "ttft": 11.421559448001062,
+   "total": 17.745532078000906,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 515,
+    "total_tokens": 579,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 107.47519310499956,
+   "ttft": 11.141851113001394,
+   "total": 16.68671957600054,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 526,
+    "total_tokens": 590,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 108.25065173199982,
+   "ttft": 10.36611436900057,
+   "total": 16.213103882000723,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 519,
+    "total_tokens": 583,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 110.25106465300087,
+   "ttft": 9.096514273000139,
+   "total": 14.760062202998597,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 516,
+    "total_tokens": 580,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 109.47529754500101,
+   "ttft": 9.872776853999312,
+   "total": 15.536291990998507,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 111.4756985010008,
+   "ttft": 8.40300300799936,
+   "total": 13.86974012599967,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 526,
+    "total_tokens": 590,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 112.25113626300117,
+   "ttft": 7.939957599999616,
+   "total": 13.83617008299916,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 525,
+    "total_tokens": 589,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 113.4750868659994,
+   "ttft": 7.141468424000777,
+   "total": 13.153515726000478,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 114.2506954670007,
+   "ttft": 10.213807412999813,
+   "total": 16.478682441000274,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 510,
+    "total_tokens": 574,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 115.47558225800094,
+   "ttft": 9.53356606899979,
+   "total": 15.427991668999312,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 116.25059334400066,
+   "ttft": 9.094661639999686,
+   "total": 14.9758425229993,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 117.4756269089994,
+   "ttft": 8.610861406001277,
+   "total": 14.286030483001014,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 519,
+    "total_tokens": 583,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 118.25096948899954,
+   "ttft": 7.835958282001229,
+   "total": 13.511142404000566,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 119.47563848200116,
+   "ttft": 7.15167587599899,
+   "total": 12.627210665999883,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 120.25104452400046,
+   "ttft": 6.6790409949990135,
+   "total": 12.580011714999273,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 121.47514142399996,
+   "ttft": 5.878706274001161,
+   "total": 11.926808168000207,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 515,
+    "total_tokens": 579,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 122.25072875200021,
+   "ttft": 8.975404669999989,
+   "total": 15.247209283999837,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 527,
+    "total_tokens": 591,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 123.475189873001,
+   "ttft": 8.287368768998931,
+   "total": 14.19036550799865,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 530,
+    "total_tokens": 594,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 124.25107823500002,
+   "ttft": 7.850238734999948,
+   "total": 13.715832985000816,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 125.47560610300025,
+   "ttft": 7.355104219999703,
+   "total": 13.02469899300013,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 126.25111478700092,
+   "ttft": 6.579457076999461,
+   "total": 12.249484971998754,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 526,
+    "total_tokens": 590,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 127.47519280000051,
+   "ttft": 5.926558629998908,
+   "total": 11.369787625999379,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 520,
+    "total_tokens": 584,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 128.25078050000047,
+   "ttft": 5.44215243600047,
+   "total": 11.38217461900058,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 528,
+    "total_tokens": 592,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 129.47518149499956,
+   "ttft": 4.69249199800106,
+   "total": 10.640482958000575,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 523,
+    "total_tokens": 587,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 130.25361209199946,
+   "ttft": 7.711417304000861,
+   "total": 13.962023011001293,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 520,
+    "total_tokens": 584,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 131.47568002700064,
+   "ttft": 7.024400952999713,
+   "total": 12.907523617999686,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 132.2511008750007,
+   "ttft": 6.592928226000367,
+   "total": 12.451133458998811,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 526,
+    "total_tokens": 590,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 134.25048731599964,
+   "ttft": 5.381083666001359,
+   "total": 10.978601053000602,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 133.47563129599985,
+   "ttft": 6.156178084000203,
+   "total": 11.75528955200025,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 527,
+    "total_tokens": 591,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 135.47503314999994,
+   "ttft": 4.639229487000193,
+   "total": 10.102284779000911,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 520,
+    "total_tokens": 584,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 136.25047466400065,
+   "ttft": 4.170511328999055,
+   "total": 10.062492839999322,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 137.48127519099944,
+   "ttft": 3.3662239980003505,
+   "total": 9.356596410001657,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 138.25108971600093,
+   "ttft": 6.450460090998604,
+   "total": 12.689229681998768,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 523,
+    "total_tokens": 587,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 139.47616728200046,
+   "ttft": 5.754557275000479,
+   "total": 11.686889499000245,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 530,
+    "total_tokens": 594,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 140.25168389400096,
+   "ttft": 5.32654259499941,
+   "total": 11.225677332999112,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 523,
+    "total_tokens": 587,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 142.25059046200113,
+   "ttft": 4.062010754998482,
+   "total": 9.795246844998474,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 512,
+    "total_tokens": 576,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 141.47527082399938,
+   "ttft": 4.837432413001807,
+   "total": 10.575325234000047,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 526,
+    "total_tokens": 590,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 143.47566926199943,
+   "ttft": 3.3619601350001176,
+   "total": 8.84593061600026,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 144.25096527999995,
+   "ttft": 2.8884714159994473,
+   "total": 8.808508107000307,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 516,
+    "total_tokens": 580,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 145.47592077900117,
+   "ttft": 2.097080580999318,
+   "total": 8.164617341999474,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 519,
+    "total_tokens": 583,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 146.25124936800057,
+   "ttft": 5.222929301999102,
+   "total": 11.405663950999951,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 516,
+    "total_tokens": 580,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 147.47561562900046,
+   "ttft": 4.574085713999011,
+   "total": 10.42974084799971,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 148.2505951639996,
+   "ttft": 4.071591630001421,
+   "total": 9.990471547000197,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 519,
+    "total_tokens": 583,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 149.4766487400011,
+   "ttft": 3.5815586959997745,
+   "total": 9.18815460299993,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 529,
+    "total_tokens": 593,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 150.25052036800116,
+   "ttft": 2.8077896049999254,
+   "total": 8.414861377999841,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 510,
+    "total_tokens": 574,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 151.47842915399997,
+   "ttft": 2.4480117860002792,
+   "total": 7.517422230999728,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 152.25436099000035,
+   "ttft": 1.6706238360002317,
+   "total": 7.492658322000352,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 518,
+    "total_tokens": 582,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 153.47828901600042,
+   "ttft": 0.805793318000724,
+   "total": 8.458597950000694,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 520,
+    "total_tokens": 584,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 154.25208116500107,
+   "ttft": 3.9871362209996732,
+   "total": 17.264215014,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 528,
+    "total_tokens": 592,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 155.47508434700103,
+   "ttft": 3.1900998189994425,
+   "total": 16.21903072599889,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 156.25056280900026,
+   "ttft": 2.7439800379997905,
+   "total": 16.000570702000914,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 524,
+    "total_tokens": 588,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 157.47596334599984,
+   "ttft": 2.268406295001114,
+   "total": 15.099817457001336,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 520,
+    "total_tokens": 584,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 158.25855064000098,
+   "ttft": 1.4863286319996405,
+   "total": 14.318435111999861,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 524,
+    "total_tokens": 588,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 160.25115428299978,
+   "ttft": 7.463334347999989,
+   "total": 13.627555982000558,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 528,
+    "total_tokens": 592,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 159.4759009850004,
+   "ttft": 8.310776066999097,
+   "total": 14.403097655000238,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 161.47566935900068,
+   "ttft": 10.774085576998914,
+   "total": 17.062899180000386,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 513,
+    "total_tokens": 577,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 162.2527485490009,
+   "ttft": 10.322971628998857,
+   "total": 16.47345048099851,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 510,
+    "total_tokens": 574,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 163.47569498899975,
+   "ttft": 9.692769248000332,
+   "total": 15.61439369999971,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 523,
+    "total_tokens": 587,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 164.25111407999975,
+   "ttft": 9.557044062999921,
+   "total": 15.369586099999651,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 165.4756291249996,
+   "ttft": 8.403633973000979,
+   "total": 14.145337695999842,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 523,
+    "total_tokens": 587,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "A",
+   "phase": "flood",
+   "start": 0.2391049819998443,
+   "ttft": 167.47512798699972,
+   "total": 180.39061654800025,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 4110,
+    "total_tokens": 4238,
+    "completion_tokens": 128
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 166.25111593899965,
+   "ttft": 8.470845780000673,
+   "total": 14.550556320000396,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 520,
+    "total_tokens": 584,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 167.47602746700068,
+   "ttft": 7.24556598900017,
+   "total": 13.328409728999759,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 515,
+    "total_tokens": 579,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 168.25063342800058,
+   "ttft": 10.837820951999674,
+   "total": 17.120669541000098,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 527,
+    "total_tokens": 591,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 169.4751598920011,
+   "ttft": 10.143853865998608,
+   "total": 16.059377451998444,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 170.25079524400098,
+   "ttft": 9.737767746999452,
+   "total": 15.59051210799953,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 528,
+    "total_tokens": 592,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 171.4758507610004,
+   "ttft": 9.154473148999386,
+   "total": 14.901094057000591,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 527,
+    "total_tokens": 591,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 172.25329626500024,
+   "ttft": 8.377811721000398,
+   "total": 14.124357668000812,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 519,
+    "total_tokens": 583,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 173.47561606099953,
+   "ttft": 7.887259057000847,
+   "total": 15.054758219001087,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 528,
+    "total_tokens": 592,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 174.25116270299986,
+   "ttft": 7.750190077000298,
+   "total": 18.773182401000668,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 524,
+    "total_tokens": 588,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 175.4750764370001,
+   "ttft": 6.583248449000166,
+   "total": 17.549854267999763,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 522,
+    "total_tokens": 586,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 176.25065266800084,
+   "ttft": 9.589815862998876,
+   "total": 21.893878699000197,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 515,
+    "total_tokens": 579,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 177.47510724300082,
+   "ttft": 8.90250454299894,
+   "total": 20.732673438998972,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 515,
+    "total_tokens": 579,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "B",
+   "phase": "flood",
+   "start": 178.25085760299953,
+   "ttft": 8.426948989001176,
+   "total": 20.01916141900074,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 517,
+    "total_tokens": 581,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "C",
+   "phase": "flood",
+   "start": 179.47600318500008,
+   "ttft": 13.546635238000817,
+   "total": 18.853714251999918,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 521,
+    "total_tokens": 585,
+    "completion_tokens": 64
+   }
+  },
+  {
+   "tenant": "A",
+   "phase": "flood",
+   "start": 21.238111988999663,
+   "ttft": 173.241900205001,
+   "total": 178.2672337340009,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 4121,
+    "total_tokens": 4249,
+    "completion_tokens": 128
+   }
+  },
+  {
+   "tenant": "A",
+   "phase": "flood",
+   "start": 51.743362586999865,
+   "ttft": 154.9980864730005,
+   "total": 157.25725050500114,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 4095,
+    "total_tokens": 4223,
+    "completion_tokens": 128
+   }
+  },
+  {
+   "tenant": "A",
+   "phase": "flood",
+   "start": 118.64108894200035,
+   "ttft": 97.61528861400075,
+   "total": 99.84378354,
+   "status": 200,
+   "usage": {
+    "prompt_tokens": 4090,
+    "total_tokens": 4218,
+    "completion_tokens": 128
+   }
+  }
+ ]
+}
