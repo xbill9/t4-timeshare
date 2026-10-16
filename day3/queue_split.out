@@ -1,0 +1,3 @@
+A: 7 requests  gateway slot wait median 90.36 s max 159.39 s  |  inside vLLM median 20.99 s max 66.89 s
+B: 90 requests  gateway slot wait median 0.00 s max 3.62 s  |  inside vLLM median 13.50 s max 21.89 s
+C: 90 requests  gateway slot wait median 0.00 s max 3.55 s  |  inside vLLM median 13.38 s max 19.67 s
